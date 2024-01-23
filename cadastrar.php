@@ -20,11 +20,11 @@
     </label>
     <label for="">
         Telefone:
-        <input type="tel" name="tel">
+        <input type="tel" name="'telefone'">
     </label>
     <label for="">
         Celular:
-        <input type="tel" name="cel" required>
+        <input type="tel" name="celular" required>
     </label>
     <label for="">
         Endereço:
