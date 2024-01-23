@@ -1,6 +1,6 @@
 <?php
 
-require './config.php';
+require_once './config.php';
 
 $lista = [];
 $sql = $pdo->query('SELECT * FROM clients');
