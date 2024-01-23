@@ -10,7 +10,7 @@ body {
 
 header {
   width: 100%;
-  height: 100px;
+  height: 15vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -38,6 +38,16 @@ table {
   margin-top: 10px;
 }
 
+tbody th,
+td {
+  padding: 5px;
+}
+
+td a {
+  text-decoration: none;
+  color: #154e80;
+}
+
 div.cadastro {
   border: 1px solid #fff;
   background-color: #154e80;
@@ -62,7 +72,7 @@ footer {
   justify-content: center;
   position: fixed;
   width: 100%;
-  height: 20%;
+  height: 15vh;
   bottom: 0;
   background-color: #154e80;
 }
