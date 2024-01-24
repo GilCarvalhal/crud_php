@@ -3,7 +3,9 @@
 require_once './config.php';
 
 $lista = [];
-$sql = $pdo->query('SELECT * FROM clients');
+$sql = $pdo->query('SELECT clients.id, clients.nome, clients.email, clients.sexo, clients.nascimento, contatos.telefone, contatos.celular, clients.endereco, clients.estado, clients.uf
+                    FROM clients
+                    LEFT JOIN contatos ON clients.id = contatos.cliente_id');
 
 if ($sql->rowCount() > 0) {
     $lista = $sql->fetchAll(PDO::FETCH_ASSOC);

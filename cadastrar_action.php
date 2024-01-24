@@ -12,10 +12,10 @@ $endereco = filter_input(INPUT_POST, 'endereco');
 $estado = filter_input(INPUT_POST, 'estado');
 $uf = filter_input(INPUT_POST, 'uf');
 
-$sqlInsert = $pdo->prepare("INSERT INTO clients (nome, email, sexo, nascimento, telefone, celular, endereco, estado, uf) 
-VALUES (:nome, :email, :sexo, :nascimento, :telefone, :celular, :endereco, :estado, :uf)");
+$sqlInsert = $pdo->prepare("INSERT INTO clients (nome, email, sexo, nascimento, endereco, estado, uf) 
+VALUES (:nome, :email, :sexo, :nascimento, :endereco, :estado, :uf)");
 
-if ($nome && $email && $sexo && $nascimento && $telefone && $celular && $endereco && $estado && $uf) {
+if ($nome && $email && $sexo && $nascimento && $endereco && $estado && $uf) {
 
     $sqlSelect = $pdo->prepare("SELECT * FROM clients WHERE email = :email");
     $sqlSelect->bindValue(':email', $email);
@@ -27,12 +27,20 @@ if ($nome && $email && $sexo && $nascimento && $telefone && $celular && $enderec
         $sqlInsert->bindValue(':email', $email);
         $sqlInsert->bindValue(':sexo', $sexo);
         $sqlInsert->bindValue(':nascimento', $nascimento);
-        $sqlInsert->bindValue(':telefone', $telefone);
-        $sqlInsert->bindValue(':celular', $celular);
         $sqlInsert->bindValue(':endereco', $endereco);
         $sqlInsert->bindValue(':estado', $estado);
         $sqlInsert->bindValue(':uf', $uf);
         $sqlInsert->execute();
+
+        $clienteId = $pdo->lastInsertId();
+
+        $sqlInsertContato = $pdo->prepare("INSERT INTO contatos (cliente_id, telefone, celular) 
+        VALUES (:cliente_id, :telefone, :celular)");
+
+        $sqlInsertContato->bindValue(':cliente_id', $clienteId);
+        $sqlInsertContato->bindValue(':telefone', $telefone);
+        $sqlInsertContato->bindValue(':celular', $celular);
+        $sqlInsertContato->execute();
 
         header('Location: index.php');
         exit;

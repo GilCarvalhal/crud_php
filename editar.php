@@ -12,6 +12,11 @@ if ($id) {
     if ($sql->rowCount() > 0) {
         // O fetch no PHP é como pegar uma linha de dados após realizar uma consulta ao banco de dados.
         $usuario = $sql->fetch(PDO::FETCH_ASSOC);
+
+        $sqlContato = $pdo->prepare('SELECT * FROM contatos WHERE cliente_id = :id');
+        $sqlContato->bindValue(':id', $id);
+        $sqlContato->execute();
+        $contato = $sqlContato->fetch(PDO::FETCH_ASSOC);
     } else {
         header('Location: index.php');
         exit;
@@ -48,10 +53,10 @@ if ($id) {
                         <p>Atualizar email:</p> <input type="email" name="email" value="<?= $usuario['email']; ?>"></input>
                     </label>
                     <label>
-                        <p>Atualizar telefone:</p> <input type="tel" name="telefone" value="<?= $usuario['telefone']; ?>"></input>
+                        <p>Atualizar telefone:</p> <input type="tel" name="telefone" value="<?= $contato['telefone']; ?>"></input>
                     </label>
                     <label>
-                        <p>Atualizar celular:</p> <input type="tel" name="celular" value="<?= $usuario['celular']; ?>"></input>
+                        <p>Atualizar celular:</p> <input type="tel" name="celular" value="<?= $contato['celular']; ?>"></input>
                     </label>
                     <label>
                         <p>Atualizar endereço:</p> <input type="text" name="endereco" value="<?= $usuario['endereco']; ?>"></input>
