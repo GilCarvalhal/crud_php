@@ -68,7 +68,16 @@ input {
   border-radius: 5px;
 }
 
-input.btn {
+div.div-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 5px;
+}
+
+input.btn,
+a.btn {
   width: 10%;
   padding: 0.5%;
   background-color: #154e80;
@@ -79,7 +88,15 @@ input.btn {
   font-weight: bold;
 }
 
-input.btn:hover {
+a.btn {
+  text-decoration: none;
+  width: 10%;
+  margin-top: 5px;
+  margin-left: 5px;
+}
+
+input.btn:hover,
+a.btn:hover {
   background-color: #fff;
   color: #154e80;
   transition: all 0.5s ease-in;

@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="cadastro.css">
+    <link rel="stylesheet" href="./css/cadastro.css">
 </head>
 
 <body>
@@ -15,8 +15,8 @@
         <h1>SEMGE</h1>
     </header>
     <main>
-    <div class="container">
-        <h1 class="title">Cadastrar usuário</h1>
+        <div class="container">
+            <h1 class="title">Cadastrar usuário</h1>
 
             <form class="box-form" action="cadastrar_action.php" method="post">
                 <div class="label">
@@ -60,10 +60,13 @@
                         <input type="text" name="uf" placeholder="Digite sua UF..." required>
                     </label>
                     <input class="btn" type="submit" value="Cadastrar">
+                    <div class="div-btn">
+                        <a class="btn" href="/crud_php/index.php">Retornar</a>
+                    </div>
                 </div>
             </form>
         </div>
-        </main>
+    </main>
 
     <footer><span>SEMGE &COPY;</span></footer>
 

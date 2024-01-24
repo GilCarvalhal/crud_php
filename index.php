@@ -21,9 +21,8 @@ if ($sql->rowCount() > 0) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tabela</title>
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
-
 
 <body>
 
@@ -34,7 +33,7 @@ if ($sql->rowCount() > 0) {
     <div class="container">
         <main>
             <table border="1">
-                <tr>
+                <tr class="t-row">
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Email</th>
@@ -48,7 +47,7 @@ if ($sql->rowCount() > 0) {
                     <th>Ações</th>
                 </tr>
                 <?php foreach ($lista as $clients) : ?>
-                    <tr>
+                    <tr class="t-row">
                         <td><?= $clients['id'] ?></td>
                         <td><?= $clients['nome'] ?></td>
                         <td><?= $clients['email'] ?></td>

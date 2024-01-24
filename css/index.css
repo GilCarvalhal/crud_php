@@ -35,11 +35,7 @@ div.container {
   justify-content: center;
 }
 
-table {
-  margin-top: 10px;
-}
-
-tbody th,
+.t-row th,
 td {
   padding: 5px;
 }
