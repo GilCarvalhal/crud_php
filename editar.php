@@ -22,29 +22,54 @@ if ($id) {
 
 ?>
 
-<h1>Editar usuário</h1>
-<form action="editar_action.php" method="post">
-    <input type="hidden" name="id" value="<?= $usuario['id']; ?>">
-    <label>
-        Atualizar nome: <input type="text" name="nome" value="<?= $usuario['nome']; ?>"></input>
-    </label>
-    <label>
-        Atualizar email: <input type="email" name="email" value="<?= $usuario['email']; ?>"></input>
-    </label>
-    <label>
-        Atualizar telefone: <input type="tel" name="telefone" value="<?= $usuario['telefone']; ?>"></input>
-    </label>
-    <label>
-        Atualizar celular: <input type="tel" name="celular" value="<?= $usuario['celular']; ?>"></input>
-    </label>
-    <label>
-        Atualizar endereço: <input type="text" name="endereco" value="<?= $usuario['endereco']; ?>"></input>
-    </label>
-    <label>
-        Atualizar estado: <input type="text" name="estado" value="<?= $usuario['estado']; ?>"></input>
-    </label>
-    <label>
-        Atualizar uf: <input type="text" name="uf" value="<?= $usuario['uf']; ?>"></input>
-    </label>
-    <input type="submit" value="Atualizar">
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar</title>
+    <link rel="stylesheet" href="editar.css">
+</head>
+
+<body>
+    <header>
+        <h1>Editar usuário</h1>
+    </header>
+    <main>
+        <div class="container">
+            <form class="box-form" action="editar_action.php" method="post">
+                <input type="hidden" name="id" value="<?= $usuario['id']; ?>">
+                <div class="label">
+                    <label>
+                        <p>Atualizar nome:</p> <input type="text" name="nome" value="<?= $usuario['nome']; ?>"></input>
+                    </label>
+                    <label>
+                        <p>Atualizar email:</p> <input type="email" name="email" value="<?= $usuario['email']; ?>"></input>
+                    </label>
+                    <label>
+                        <p>Atualizar telefone:</p> <input type="tel" name="telefone" value="<?= $usuario['telefone']; ?>"></input>
+                    </label>
+                    <label>
+                        <p>Atualizar celular:</p> <input type="tel" name="celular" value="<?= $usuario['celular']; ?>"></input>
+                    </label>
+                    <label>
+                        <p>Atualizar endereço:</p> <input type="text" name="endereco" value="<?= $usuario['endereco']; ?>"></input>
+                    </label>
+                    <label>
+                        <p>Atualizar estado:</p> <input type="text" name="estado" value="<?= $usuario['estado']; ?>"></input>
+                    </label>
+                    <label>
+                        <p>Atualizar uf:</p> <input type="text" name="uf" value="<?= $usuario['uf']; ?>"></input>
+                    </label>
+                    <input type="submit" value="Atualizar" class="btn">
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer><span>SEMGE &COPY;</span></footer>
+
+</body>
+
+</html>

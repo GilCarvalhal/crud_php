@@ -38,28 +38,20 @@ div.label {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   text-align: center;
   margin: 5px;
   margin-bottom: 5px;
 }
 
 label {
+    margin-top: 20px;
   padding: 2px;
 }
 
 label p {
   margin-bottom: 10px;
   font-weight: bold;
-}
-
-label p.m,
-p.f {
-  display: inline-block;
-}
-
-label p {
-  margin-left: 5px;
-  margin-top: 5px;
 }
 
 input {
@@ -71,6 +63,7 @@ input {
 input.btn {
   width: 10%;
   padding: 0.5%;
+  margin-top: 1%;
   background-color: #154e80;
   color: #fff;
   cursor: pointer;

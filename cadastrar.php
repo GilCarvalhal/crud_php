@@ -14,10 +14,10 @@
     <header>
         <h1>SEMGE</h1>
     </header>
+    <main>
     <div class="container">
         <h1 class="title">Cadastrar usuário</h1>
 
-        <main>
             <form class="box-form" action="cadastrar_action.php" method="post">
                 <div class="label">
                     <label>
@@ -61,9 +61,9 @@
                     </label>
                     <input class="btn" type="submit" value="Cadastrar">
                 </div>
-    </div>
-    </form>
-    </main>
+            </form>
+        </div>
+        </main>
 
     <footer><span>SEMGE &COPY;</span></footer>
 
