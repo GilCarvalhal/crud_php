@@ -59,10 +59,10 @@
                         <p>UF:</p>
                         <input type="text" name="uf" placeholder="Digite sua UF..." required>
                     </label>
-                    <div class="div-btn">
-                        <input class="btn" type="submit" value="Cadastrar">
-                        <input onclick="redirecionar()" class="btn" type="button" value="Retornar">
-                    </div>
+                </div>
+                <div class="div-btn">
+                    <input class="btn" type="submit" value="Cadastrar">
+                    <input onclick="redirecionar()" class="btn" type="button" value="Retornar">
                 </div>
             </form>
         </div>
