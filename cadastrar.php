@@ -59,9 +59,9 @@
                         <p>UF:</p>
                         <input type="text" name="uf" placeholder="Digite sua UF..." required>
                     </label>
-                    <input class="btn" type="submit" value="Cadastrar">
                     <div class="div-btn">
-                        <a class="btn" href="/crud_php/index.php">Retornar</a>
+                        <input class="btn" type="submit" value="Cadastrar">
+                        <input onclick="redirecionar()" class="btn" type="button" value="Retornar">
                     </div>
                 </div>
             </form>
@@ -73,3 +73,9 @@
 </body>
 
 </html>
+
+<script>
+    function redirecionar() {
+        window.location.href = "http://localhost/crud_php/index.php";
+    }
+</script>

@@ -65,8 +65,8 @@ if ($sql->rowCount() > 0) {
                     </tr>
                 <?php endforeach; ?>
             </table>
-            <div class="cadastro">
-                <a href="./cadastrar.php" class="btn-cadastro">Cadastrar usuário</a>
+            <div class="div-btn">
+                <input class="btn" onclick="redirecionarCadastro()" type="button" value="Cadastrar usuário">
             </div>
         </main>
     </div>
@@ -75,3 +75,9 @@ if ($sql->rowCount() > 0) {
 </body>
 
 </html>
+
+<script>
+    function redirecionarCadastro() {
+        window.location.href = "http://localhost/crud_php/cadastrar.php";
+    }
+</script>
