@@ -14,15 +14,9 @@ $celular = filter_input(INPUT_POST, 'celular', FILTER_VALIDATE_INT);
 if ($id && $nome && $email && $endereco && $cidade && $uf) {
     $sql = $pdo->prepare('UPDATE clients SET 
     nome = :nome, 
-    email = :email, 
-    endereco = :endereco, 
-    cidade = :cidade, 
-    uf = :uf WHERE id = :id');
+    email = :email WHERE id = :id');
     $sql->bindValue(':nome', $nome);
     $sql->bindValue(':email', $email);
-    $sql->bindValue(':endereco', $endereco);
-    $sql->bindValue(':cidade', $cidade);
-    $sql->bindValue(':uf', $uf);
     $sql->bindValue(':id', $id);
     $sql->execute();
 
@@ -33,6 +27,15 @@ if ($id && $nome && $email && $endereco && $cidade && $uf) {
     $sqlUpdateContato->bindValue(':celular', $celular);
     $sqlUpdateContato->bindValue(':id', $id);
     $sqlUpdateContato->execute();
+
+    $sqlUpdateLocal = $pdo->prepare("UPDATE localidade SET endereco = :endereco, cidade = :cidade, uf = :uf 
+    WHERE cliente_id = :id");
+
+    $sqlUpdateLocal->bindValue(':endereco', $endereco);
+    $sqlUpdateLocal->bindValue(':cidade', $cidade);
+    $sqlUpdateLocal->bindValue(':uf', $uf);
+    $sqlUpdateLocal->bindValue(':id', $id);
+    $sqlUpdateLocal->execute();
 
     header('Location: index.php');
     exit;

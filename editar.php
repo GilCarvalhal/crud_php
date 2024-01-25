@@ -17,6 +17,16 @@ if ($id) {
         $sqlContato->bindValue(':id', $id);
         $sqlContato->execute();
         $contato = $sqlContato->fetch(PDO::FETCH_ASSOC);
+
+        if ($sql->rowCount() > 0) {
+            // O fetch no PHP é como pegar uma linha de dados após realizar uma consulta ao banco de dados.
+            $usuario = $sql->fetch(PDO::FETCH_ASSOC);
+
+            $sqlLocal = $pdo->prepare('SELECT * FROM localidade WHERE cliente_id = :id');
+            $sqlLocal->bindValue(':id', $id);
+            $sqlLocal->execute();
+            $localidade = $sqlLocal->fetch(PDO::FETCH_ASSOC);
+        }
     } else {
         header('Location: index.php');
         exit;
@@ -59,13 +69,13 @@ if ($id) {
                         <p>Atualizar celular:</p> <input type="tel" name="celular" value="<?= $contato['celular']; ?>"></input>
                     </label>
                     <label>
-                        <p>Atualizar endereço:</p> <input type="text" name="endereco" value="<?= $usuario['endereco']; ?>"></input>
+                        <p>Atualizar endereço:</p> <input type="text" name="endereco" value="<?= $localidade['endereco']; ?>"></input>
                     </label>
                     <label>
-                        <p>Atualizar cidade:</p> <input type="text" name="cidade" value="<?= $usuario['cidade']; ?>"></input>
+                        <p>Atualizar cidade:</p> <input type="text" name="cidade" value="<?= $localidade['cidade']; ?>"></input>
                     </label>
                     <label>
-                        <p>Atualizar uf:</p> <input type="text" name="uf" value="<?= $usuario['uf']; ?>"></input>
+                        <p>Atualizar uf:</p> <input type="text" name="uf" value="<?= $localidade['uf']; ?>"></input>
                     </label>
                     <input type="submit" value="Atualizar" class="btn">
                 </div>
