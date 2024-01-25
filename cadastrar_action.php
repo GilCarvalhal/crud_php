@@ -7,13 +7,13 @@ $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $sexo = filter_input(INPUT_POST, 'sexo');
 $nascimento = filter_input(INPUT_POST, 'nascimento');
 $endereco = filter_input(INPUT_POST, 'endereco');
-$estado = filter_input(INPUT_POST, 'estado');
+$cidade = filter_input(INPUT_POST, 'cidade');
 $uf = filter_input(INPUT_POST, 'uf');
 $telefone = filter_input(INPUT_POST, 'telefone', FILTER_VALIDATE_INT);
 $celular = filter_input(INPUT_POST, 'celular', FILTER_VALIDATE_INT);
 
-$sqlInsert = $pdo->prepare("INSERT INTO clients (nome, email, sexo, nascimento, endereco, estado, uf) 
-VALUES (:nome, :email, :sexo, :nascimento, :endereco, :estado, :uf)");
+$sqlInsert = $pdo->prepare("INSERT INTO clients (nome, email, sexo, nascimento, endereco, cidade, uf) 
+VALUES (:nome, :email, :sexo, :nascimento, :endereco, :cidade, :uf)");
 
 if ($nome && $email) {
 
@@ -28,7 +28,7 @@ if ($nome && $email) {
         $sqlInsert->bindValue(':sexo', $sexo);
         $sqlInsert->bindValue(':nascimento', $nascimento);
         $sqlInsert->bindValue(':endereco', $endereco);
-        $sqlInsert->bindValue(':estado', $estado);
+        $sqlInsert->bindValue(':cidade', $cidade);
         $sqlInsert->bindValue(':uf', $uf);
         $sqlInsert->execute();
 

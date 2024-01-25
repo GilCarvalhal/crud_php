@@ -52,8 +52,8 @@
                         <input type="text" name="endereco" placeholder="Digite seu endereço..." required>
                     </label>
                     <label>
-                        <p>Estado:</p>
-                        <input type="text" name="estado" placeholder="Digite sua região..." required>
+                        <p>Cidade:</p>
+                        <input type="text" name="cidade" placeholder="Digite sua região..." required>
                     </label>
                     <label>
                         <p>UF:</p>

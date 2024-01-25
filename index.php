@@ -3,7 +3,7 @@
 require_once './config.php';
 
 $lista = [];
-$sql = $pdo->query('SELECT clients.id, clients.nome, clients.email, clients.sexo, clients.nascimento, contatos.telefone, contatos.celular, clients.endereco, clients.estado, clients.uf
+$sql = $pdo->query('SELECT clients.id, clients.nome, clients.email, clients.sexo, clients.nascimento, contatos.telefone, contatos.celular, clients.endereco, clients.cidade, clients.uf
                     FROM clients
                     LEFT JOIN contatos ON clients.id = contatos.cliente_id');
 
@@ -42,7 +42,7 @@ if ($sql->rowCount() > 0) {
                     <th>Telefone</th>
                     <th>Celular</th>
                     <th>Endereço</th>
-                    <th>Estado</th>
+                    <th>Cidade</th>
                     <th>UF</th>
                     <th>Ações</th>
                 </tr>
@@ -56,7 +56,7 @@ if ($sql->rowCount() > 0) {
                         <td><?= $clients['telefone'] ?></td>
                         <td><?= $clients['celular'] ?></td>
                         <td><?= $clients['endereco'] ?></td>
-                        <td><?= $clients['estado'] ?></td>
+                        <td><?= $clients['cidade'] ?></td>
                         <td><?= $clients['uf'] ?></td>
                         <td>
                             <a href="editar.php?id=<?= $clients['id'] ?>">[ Editar ]</a>

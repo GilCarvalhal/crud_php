@@ -62,7 +62,7 @@ if ($id) {
                         <p>Atualizar endereço:</p> <input type="text" name="endereco" value="<?= $usuario['endereco']; ?>"></input>
                     </label>
                     <label>
-                        <p>Atualizar estado:</p> <input type="text" name="estado" value="<?= $usuario['estado']; ?>"></input>
+                        <p>Atualizar cidade:</p> <input type="text" name="cidade" value="<?= $usuario['cidade']; ?>"></input>
                     </label>
                     <label>
                         <p>Atualizar uf:</p> <input type="text" name="uf" value="<?= $usuario['uf']; ?>"></input>
