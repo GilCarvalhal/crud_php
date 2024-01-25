@@ -1,6 +1,6 @@
 <?php
 
-require_once 'config.php';
+require_once './config.php';
 
 $usuario = [];
 $id = filter_input(INPUT_GET, 'id');
@@ -18,15 +18,12 @@ if ($id) {
         $sqlContato->execute();
         $contato = $sqlContato->fetch(PDO::FETCH_ASSOC);
 
-        if ($sql->rowCount() > 0) {
-            // O fetch no PHP é como pegar uma linha de dados após realizar uma consulta ao banco de dados.
-            $usuario = $sql->fetch(PDO::FETCH_ASSOC);
+        // O fetch no PHP é como pegar uma linha de dados após realizar uma consulta ao banco de dados.
 
-            $sqlLocal = $pdo->prepare('SELECT * FROM localidade WHERE cliente_id = :id');
-            $sqlLocal->bindValue(':id', $id);
-            $sqlLocal->execute();
-            $localidade = $sqlLocal->fetch(PDO::FETCH_ASSOC);
-        }
+        $sqlLocal = $pdo->prepare('SELECT * FROM localidade WHERE cliente_id = :id');
+        $sqlLocal->bindValue(':id', $id);
+        $sqlLocal->execute();
+        $localidade = $sqlLocal->fetch(PDO::FETCH_ASSOC);
     } else {
         header('Location: index.php');
         exit;
