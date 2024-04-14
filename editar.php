@@ -10,15 +10,12 @@ if ($id) {
     $sql->execute();
 
     if ($sql->rowCount() > 0) {
-        // O fetch no PHP é como pegar uma linha de dados após realizar uma consulta ao banco de dados.
         $usuario = $sql->fetch(PDO::FETCH_ASSOC);
 
         $sqlContato = $pdo->prepare('SELECT * FROM contatos WHERE cliente_id = :id');
         $sqlContato->bindValue(':id', $id);
         $sqlContato->execute();
         $contato = $sqlContato->fetch(PDO::FETCH_ASSOC);
-
-        // O fetch no PHP é como pegar uma linha de dados após realizar uma consulta ao banco de dados.
 
         $sqlLocal = $pdo->prepare('SELECT * FROM localidade WHERE cliente_id = :id');
         $sqlLocal->bindValue(':id', $id);
