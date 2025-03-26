@@ -41,11 +41,11 @@
                     </label>
                     <label>
                         <p>Telefone:</p>
-                        <input type="tel" name="telefone" placeholder="Digite seu contato...">
+                        <input type="tel" name="telefone" placeholder="xxxxxxxxxx" oninput="validarTelefoneCelular(this)">
                     </label>
                     <label>
                         <p>Celular:</p>
-                        <input type="tel" name="celular" placeholder="Digite seu contato..." required>
+                        <input type="tel" name="celular" placeholder="xxxxxxxxxx" oninput="validarTelefoneCelular(this)" required>
                     </label>
                     <label>
                         <p>Endereço:</p>
@@ -57,7 +57,7 @@
                     </label>
                     <label>
                         <p>UF:</p>
-                        <input type="text" name="uf" placeholder="Digite sua UF..." required>
+                        <input type="text" name="uf" placeholder="Digite sua UF..." oninput="validarUF(this)" required>
                     </label>
                 </div>
                 <div class="div-btn">
@@ -77,5 +77,37 @@
 <script>
     function redirecionar() {
         window.location.href = "http://localhost/crud_php/index.php";
+    }
+
+    function validarTelefoneCelular(input) {
+        // Expressão regular para verificar se há caracteres não numéricos
+        const regex = /[^0-9]/g;
+        const valor = input.value;
+
+        if (regex.test(valor)) {
+            input.value = valor.replace(regex, '');
+            alert("Por favor, insira apenas números no campo " + input.name);
+        }
+    }
+
+    // Função para validar o formato de UF (apenas 2 letras maiúsculas)
+    function validarUF(input) {
+        let valor = input.value.toUpperCase();
+
+        // Se houver mais de 2 caracteres, corta o valor para os primeiros 2
+        if (valor.length > 2) {
+            valor = valor.substring(0, 2);
+        }
+
+        // Expressão regular para garantir que seja composto apenas por letras maiúsculas
+        const regexUF = /^[A-Z]{2}$/;
+
+        // Verifica se o valor está correto
+        if (!regexUF.test(valor)) {
+            input.value = valor.replace(/[^A-Z]/g, ''); // Remove qualquer caractere não permitido
+            alert("Por favor, insira uma UF válida (2 letras maiúsculas).");
+        } else {
+            input.value = valor; // Atualiza o campo com o valor válido
+        }
     }
 </script>

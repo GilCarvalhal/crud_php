@@ -57,10 +57,10 @@ if ($id) {
                         <p>Atualizar email:</p> <input type="email" name="email" value="<?= $usuario['email']; ?>"></input>
                     </label>
                     <label>
-                        <p>Atualizar telefone:</p> <input type="tel" name="telefone" value="<?= $contato['telefone']; ?>"></input>
+                        <p>Atualizar telefone:</p> <input type="tel" name="telefone" value="<?= $contato['telefone']; ?>" oninput="validarTelefoneCelular(this)"></input>
                     </label>
                     <label>
-                        <p>Atualizar celular:</p> <input type="tel" name="celular" value="<?= $contato['celular']; ?>"></input>
+                        <p>Atualizar celular:</p> <input type="tel" name="celular" value="<?= $contato['celular']; ?>" oninput="validarTelefoneCelular(this)"></input>
                     </label>
                     <label>
                         <p>Atualizar endereço:</p> <input type="text" name="endereco" value="<?= $localidade['endereco']; ?>"></input>
@@ -69,7 +69,7 @@ if ($id) {
                         <p>Atualizar cidade:</p> <input type="text" name="cidade" value="<?= $localidade['cidade']; ?>"></input>
                     </label>
                     <label>
-                        <p>Atualizar uf:</p> <input type="text" name="uf" value="<?= $localidade['uf']; ?>"></input>
+                        <p>Atualizar uf:</p> <input type="text" name="uf" value="<?= $localidade['uf']; ?>" oninput="validarUF(this)"></input>
                     </label>
                     <input type="submit" value="Atualizar" class="btn">
                 </div>
@@ -82,3 +82,37 @@ if ($id) {
 </body>
 
 </html>
+
+<script>
+    function validarTelefoneCelular(input) {
+        // Expressão regular para verificar se há caracteres não numéricos
+        const regex = /[^0-9]/g;
+        const valor = input.value;
+
+        if (regex.test(valor)) {
+            input.value = valor.replace(regex, '');
+            alert("Por favor, insira apenas números no campo " + input.name);
+        }
+    }
+
+    // Função para validar o formato de UF (apenas 2 letras maiúsculas)
+    function validarUF(input) {
+        let valor = input.value.toUpperCase();
+
+        // Se houver mais de 2 caracteres, corta o valor para os primeiros 2
+        if (valor.length > 2) {
+            valor = valor.substring(0, 2);
+        }
+
+        // Expressão regular para garantir que seja composto apenas por letras maiúsculas
+        const regexUF = /^[A-Z]{2}$/;
+
+        // Verifica se o valor está correto
+        if (!regexUF.test(valor)) {
+            input.value = valor.replace(/[^A-Z]/g, ''); // Remove qualquer caractere não permitido
+            alert("Por favor, insira uma UF válida (2 letras maiúsculas).");
+        } else {
+            input.value = valor; // Atualiza o campo com o valor válido
+        }
+    }
+</script>

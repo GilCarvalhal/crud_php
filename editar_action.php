@@ -8,8 +8,14 @@ $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
 $endereco = filter_input(INPUT_POST, 'endereco');
 $cidade = filter_input(INPUT_POST, 'cidade');
 $uf = filter_input(INPUT_POST, 'uf');
-$telefone = filter_input(INPUT_POST, 'telefone', FILTER_VALIDATE_INT);
-$celular = filter_input(INPUT_POST, 'celular', FILTER_VALIDATE_INT);
+$telefone = filter_input(INPUT_POST, 'telefone');
+$celular = filter_input(INPUT_POST, 'celular');
+
+// Validação para garantir que telefone e celular sejam apenas números
+if (!preg_match('/^\d+$/', $telefone) || !preg_match('/^\d+$/', $celular)) {
+    header('Location: index.php');
+    exit;
+}
 
 if ($id && $nome && $email && $endereco && $cidade && $uf) {
     $sql = $pdo->prepare('UPDATE clients SET 
